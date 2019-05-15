@@ -30,12 +30,6 @@ TEYEPE.scrollLoop = () => {
             $(window).on("resize", function() {
                 app.pageHeight = $(".js-loop").outerHeight();
             });
-            if (app.isMobile()) {
-                app.scrollOffset = 168;
-            }
-            if (app.isTablet()) {
-                app.scrollOffset = 144;
-            }
             let initialOffset = app.scrollOffset;
             $(window).scrollTop(initialOffset);
             app.interval = setInterval(app.watchScroll, app.scrollInterval);
@@ -50,10 +44,10 @@ TEYEPE.scrollLoop = () => {
             }
         },
         isMobile: function() {
-            return Modernizr.mq('(max-width:599px)');
+            return Modernizr.mq('(max-width:429px)');
         },
         isTablet: function() {
-            return Modernizr.mq('(min-width:600px) and (max-width:959px)');
+            return Modernizr.mq('(min-width:430px) and (max-width:959px)');
         },
         isDesktop: function() {
             return Modernizr.mq('(min-width:960px)');

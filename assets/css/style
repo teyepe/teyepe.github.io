@@ -353,7 +353,7 @@ svg .svg-color--deepblue {
     font-weight: bold;
     line-height: 1.125;
     : 0.2625rem;
-    letter-spacing: calc(-0.3vw + -0.07562rem);
+    letter-spacing: calc(-0.15vw + -0.20969rem);
     color: #181238; }
     @media (max-width: 26.825rem) {
       .header__title {
@@ -363,7 +363,7 @@ svg .svg-color--deepblue {
         font-size: 3.8416rem; } }
     @media (max-width: 26.825rem) {
       .header__title {
-        letter-spacing: -0.15625rem; } }
+        letter-spacing: -0.25rem; } }
     @media (min-width: 89.375rem) {
       .header__title {
         letter-spacing: -0.34375rem; } }
