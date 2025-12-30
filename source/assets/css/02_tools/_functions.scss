@@ -60,11 +60,11 @@
 
 // color tint & shade functions
 @function tint($color, $percentage) {
-    @return mix(#FFF, $color, $percentage);
+    @return mix(#FFF, $color, $percentage * 1%);
 }
 
 @function shade($color, $percentage) {
-    @return mix(#000, $color, $percentage);
+    @return mix(#000, $color, $percentage * 1%);
 }
 
 // color tint & shade functions based on Müller Theory 
