@@ -18,7 +18,7 @@ TEYEPE.blink = () => {
 TEYEPE.scrollLoop = () => {
     const app = {
         scrollInterval: 30,
-        scrollOffset: 120,
+        scrollOffset: 150,
         pageHeight: null,
         loop: function() {
             app.pageHeight = $(".js-loop").outerHeight();
