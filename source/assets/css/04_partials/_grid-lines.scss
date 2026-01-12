@@ -1,0 +1,140 @@
+.line {
+    width: 1px;
+    display: block;
+    background-color: $orange--dark;
+    border: 0;
+    margin: 0;
+    display: block;
+    z-index: 10;
+    opacity: 0.65;
+    @include from(2) {
+        opacity: 0.8;
+    }
+    @include from(3) {
+        opacity: 1;
+    }
+    &--light {
+        background-color: shade-chroma($offwhite, 40);
+    }
+    &--vertical {
+        grid-column: 1 / span 5;
+        width: 100vw;
+        transform: translateX(calc(-50vw + 50%));
+        width: 100vw;
+        height: 1px;
+        margin: 0 calc(-50vw + 50%);
+        top: -$sp--y*4;
+        position: relative;
+        @include from(3) {
+            grid-column: 1 / span 10;
+        }
+    }
+    &--start {
+        grid-column: col / span 1;
+        grid-row: row / span 10;
+        header & {
+            grid-row: row / span 5;
+        }
+    }
+    &--1a {
+        grid-column: col 3 / span 1;
+        grid-row: row / span 10;
+        justify-self: end;
+        @include from(3) {
+            grid-column: col 6 / span 1;
+        }
+        header & {
+            grid-row: row / span 5;
+        }
+    }
+    &--1b {
+        grid-column: col 4 / span 1;
+        grid-row: row / span 10;
+        @include from(3) {
+            grid-column: col 7 / span 1;
+        }
+        header & {
+            grid-row: row / span 5;
+        }
+    }
+    &--2a {
+        display: none;
+        grid-row: row / span 10;
+        justify-self: end;
+        @include from(2) {
+            grid-column: col 4 / span 1;            
+        }
+        @include from(3) {
+            grid-column: col 7 / span 1;
+        }
+        header & {
+            grid-row: row / span 5;
+        }
+    }
+    &--2b {
+        display: none;
+        grid-row: row / span 10;
+        @include from(2) {
+            grid-column: 5 / span 1;
+        }
+        @include from(3) {
+            grid-column: col 8 / span 1;
+        }
+        header & {
+            grid-row: row / span 5;
+        }
+    }
+    &--3a {
+        display: none;
+        @include from(3) {
+            display: block;
+            grid-column: col 8 / span 1;
+            grid-row: row / span 10;
+            justify-self: end;
+            header & {
+                grid-row: row / span 5;
+            }
+        }
+    }
+    &--3b {
+        display: none;
+        @include from(3) {
+            display: block;
+            grid-column: col 9 / span 1;
+            grid-row: row / span 10;
+            header & {
+                grid-row: row / span 5;
+            }
+        }
+    }
+    &--end {
+        display: none;
+        @include from(3) {
+            display: block;
+            grid-column: col 9 / span 1;
+            grid-row: row / span 10;
+            justify-self: end;
+            header & {
+                grid-row: row / span 5;
+            }
+        }
+    }
+    &--v1 {
+        grid-row: row 4;
+        align-self: end;
+    }
+    &--v2 {
+        grid-row: row 5;
+    }
+    &--v3 {
+        grid-row: row 2;
+        align-self: end;
+    }
+    &--v4 {
+        grid-row: row 3;
+    }
+    &--v5 {
+        grid-row: row 6;
+        align-self: end;
+    }
+}

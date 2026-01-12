@@ -1,0 +1,54 @@
+---
+ogtitle: Tasos Dervenagas | Designer
+ogdescription: "Personal site of Tasos Dervenagas — UX/UI Lead Designer, DesignOps, UI Engineer, Typographer & Illustrator. Designer"
+title: Tasos Dervenagas | Designer
+description: "Personal site of Tasos Dervenagas — UX/UI Lead Designer, DesignOps, UI Engineer, Typographer & Illustrator. Designer"
+category: home
+priority: 1.0
+---
+
+<section class="intro">
+    <div class="pseudoheader">
+        <div class="grid grid--a">
+            <div class="header__title grid__item--header">teyepe</div>
+            <div class="header__logo grid__item--logo">
+                <%= partial "partials/svg/logo" %>
+            </div>
+        </div>
+    </div>
+    <div class="grid">
+        <%= partial "partials/grid-lines/about" %>
+        <div class="grid__item--d">
+            <figure class="photograph">
+                <img 
+                    srcset="<%= image_path('teyepe_560.jpg') %> 560w, 
+                            <%= image_path('teyepe_360.jpg') %> 360w, 
+                            <%= image_path('teyepe_220.jpg') %> 220w,
+                            <%= image_path('teyepe_560x2.jpg') %> 1120w, 
+                            <%= image_path('teyepe_360x2.jpg') %> 7200w, 
+                            <%= image_path('teyepe_220x2.jpg') %> 440w"
+                    sizes= "(max-width: 26.875rem) 220px, (max-width: 59.95rem) 360px, 560px"
+                    src="<%= image_path('teyepe_220.jpg') %>" 
+                >
+            </figure>
+        </div>
+        <div class="grid__item--a">
+            <h1 class="c-title--h1">teyepe who?</h1>
+            <p><span>Teyepe</span> is the moniker of multi&shy;disciplinary product designer <span>Tasos Dervenagas</span>.</p>
+            <p>He builds honest yet functional user interfaces and develops meticulous design systems. Tasos is a design lead at <span>PeoplePerHour</span>.</p>
+        </div>
+        <%= partial "partials/aside" %>
+    </div>
+</section>
+<section class="about">
+    <div class="grid grid--a">
+        <%= partial "partials/grid-lines/info" %>
+        <div class="grid__item--b">
+            <h2 class="c-title--h2">about</h2>
+            <p>Tasos is among the few designers who arrogantly support the idea that web (design) is still <a class="c-link--txt" href="https://ia.net/topics/the-web-is-all-about-typography-period" target="_blank" title="">95% typography</a>. Having a strong graphic design and typographic background, he has worked as art director, type designer and UI engineer with a career path of over <%= "#{(Date.today.year - 2001)}" %> years.</p>
+            <p>Today, he designs interfaces and quite often writes presentational code for the web. He cares a lot about user experience, reusability, functionalism and minimal yet meaningful design. He favours semantically structured markup, thoroughly orchestrated CSS and component-based development.</p>
+            <p>Currently he designs demanding web applications with a group of briliant folks at PeoplePerHour.</p>
+            <a class="button" href="mailto:hello@teyepe.com?subject=Tasos, could you send me a PDF copy of your portfolio, please?">Request portfolio</a>
+        </div>
+    </div>
+</section>

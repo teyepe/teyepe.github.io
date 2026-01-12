@@ -1,0 +1,36 @@
+.aside {
+    background: url(../../../assets/img/bg--orange.png) 0 0 repeat fixed $offwhite;
+    &__sticky-wrapper {
+        position: relative;
+        position: sticky;
+        height: 100vh;
+        top: 0;
+        width: 100%;
+    }
+    &__list {
+        position: absolute;
+        bottom: $sp*3;
+        left: calc(50% - 9px);
+        transform: rotate(-90deg) translateY(100%);
+        transform-origin: left bottom;
+        opacity: 0.99;
+        z-index: 10;
+        width: $sp*26;
+    }
+    &__item {
+        float: left;
+        margin-right: $sp--y*24/30;
+        &:last-child {
+            margin-right: 0;
+        }
+        a {
+            color: $orange;
+            text-decoration: underline $orange solid;
+            text-underline-offset: $sp*0.5;
+            text-decoration-thickness: 1px;
+            &:hover {
+                color: $deepblue;
+            }
+        }
+    }
+}

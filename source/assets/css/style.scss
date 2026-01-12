@@ -1,0 +1,132 @@
+@charset 'UTF-8';
+
+@import '../../../source/assets/css/01_settings/Settings';
+@import '../../../source/assets/css/02_tools/Tools';
+@import '../../../source/assets/css/03_generic/Generic';
+@import '../../../source/assets/css/04_partials/Partials';
+@import '../../../source/assets/css/05_components/Components';
+
+.grid {
+    max-width: $bp--lg;
+    margin: 0 auto;
+    display: grid;
+    padding: 0 $sp*3;
+    grid-gap: $sp--y $sp*3;
+    grid-template-columns: repeat(4, [col] 1fr) minmax(min-content, $sp*3);
+    grid-template-rows: repeat(6, [row] 10vh);
+    @include from(2) {
+        grid-template-columns: repeat(4, [col] 1fr) minmax(min-content, $sp*6);
+    }
+    @include from(3) {
+        grid-template-columns: repeat(9, [col] 1fr) minmax(min-content, $sp*10);
+    }
+    &--a {
+        grid-template-rows: repeat(4, [row] $sp--y);
+        grid-gap: 0 $sp*3;
+    }
+    &--b {
+        grid-template-rows: repeat(9, [row] $sp--y*4);
+    }
+    &__item--header {
+        grid-column: col / span 3;
+        grid-row: row 3 / span 2;
+        @include from(3) {
+            grid-column: col 1 / span 4;
+        }
+    }
+    &__item--logo {
+        display: none;
+        @include from(3) {
+            grid-column: col 8 / span 2;
+            grid-row: row 1 / span 4;
+            display: block;
+            position: relative;
+            bottom: -$sp--y;
+        }
+    }
+    &__item--a {
+        padding-top: $sp--y*3/4;
+        grid-column: col 1 / span 4;
+        grid-row: row 4 / span 6;
+        z-index: 1;
+        padding: 0 0 $sp--y*4;
+        @include from(3) {
+            grid-column: col 4 / span 5;
+        }
+    }
+    &__item--b {
+        grid-column: col 1 / span 4;
+        grid-row: row 4 / span 4;
+        z-index: 1;
+        padding: 0 0 $sp--y*6;
+        @include from(3) {
+            grid-column: col 4 / span 5;
+            padding: $sp--y*4 0 $sp--y*6;
+        }
+    }
+    &__item--c {
+        padding-top: $sp--y*3/4;
+        grid-column: col 1 / span 4;
+        grid-row: row 2 / span 4;
+        @include from(3) {
+            grid-column: col 4 / span 5;
+        }
+    }
+    &__item--d {
+        grid-column: col 1 / span 4;
+        grid-row: row 3 / span 5;
+        background-color: $deepblue;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        @include from(2) {
+            grid-column: col 2 / span 3;
+        }
+        @include from(3) {
+            grid-column: col 2 / span 4;
+        }
+    }
+    &__item--e {
+        grid-column: 5 / span 1;
+        grid-row: row / span 10;
+        @include from(3) {
+            grid-column: 10 / span 1;
+        }
+    }
+    &__item--f {
+        grid-column: col 1 / span 4;
+        grid-row: row 6 / span 3;
+        @include from(3) {
+            grid-column: col 4 / span 5;
+        }
+    }
+    &__item--g {
+        grid-column: col 1 / span 4;
+        grid-row: row 9 / span 1;
+        @include from(3) {
+            grid-column: col 4 / span 5;
+        }
+    }
+    &__item--illustration {
+        grid-column: col 1 / span 2;
+        grid-row: row / span 2;
+        position: relative;
+        transform: translateY(-50%);
+        @include from(3) {
+            grid-column: col 2 / span 2;
+        }
+        svg {
+            width: 100%;
+            min-width: 100%;
+            @include at(2) {
+                min-width: $sp*12;
+            }
+        }
+    }
+}
+
+.loop {
+    position: relative;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+}

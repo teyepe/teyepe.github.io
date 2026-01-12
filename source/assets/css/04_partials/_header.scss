@@ -1,0 +1,28 @@
+.header {
+    height: $sp--y*4;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    width: 100vw;
+    &__title {
+        @include font('Eurostile', bold, 4, 4, 4);
+        @include css-lock(-0.4*$sp, -0.55*$sp, letter-spacing);
+        color: $deepblue;
+    }
+    &__logo {    
+        svg {
+            fill: $deepblue;
+            width: 100%;
+            height: auto;
+            max-height: 105%;
+            position: absolute;
+        }
+    }
+}
+
+.header .header__title:hover {
+    color: $orange;
+}
+

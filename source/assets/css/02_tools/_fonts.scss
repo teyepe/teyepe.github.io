@@ -1,0 +1,31 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 3678104, 2018-11-26T05:07:39-0500
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: EurostileExt-Bla by URW
+ * URL: https://www.myfonts.com/fonts/urw/eurostile/t-black-extended/
+ * Copyright: Copyright 2010 URW++ Design &amp; Development Hamburg
+ * Licensed pageviews: 10,000
+ * 
+ * 
+ * License: https://www.myfonts.com/viewlicense?type=web&buildid=3678104
+ * 
+ * © 2018 MyFonts Inc
+*/
+
+
+@import url(//hello.myfonts.net/count/381f98);
+
+@include font-face($woff2, 'Eurostile', '381F98_0_0', $font-weight: bold, $font-style: normal);
+@include font-face($woff2, 'Forma-Micro', 'FormaDJRMicro-Regular_licensed-to-teyepe', $font-weight: normal, $font-style: normal);
+@include font-face($woff2, 'Forma-Text', 'FormaDJRText-Regular_licensed-to-teyepe', $font-weight: normal, $font-style: normal);
+@include font-face($woff2, 'Forma-Deck', 'FormaDJRDeck-Regular_licensed-to-teyepe', $font-weight: normal, $font-style: normal);
+@include font-face($woff2, 'Forma-Display', 'FormaDJRDisplay-Regular_licensed-to-teyepe', $font-weight: normal, $font-style: normal);
+@include font-face($woff2, 'Forma-Banner', 'FormaDJRBanner-Regular_licensed-to-teyepe', $font-weight: normal, $font-style: normal);
+

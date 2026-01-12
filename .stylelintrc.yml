@@ -1,0 +1,32 @@
+extends:
+  stylelint-config-sass-guidelines
+
+plugins:
+  - stylelint-scss
+
+rules:
+  # CSS formatting
+  at-rule-blacklist: [always, {ignoreAtRules: [debug]}]
+  block-opening-brace-space-before: always
+  color-hex-case: upper
+  order/properties-order: null
+  declaration-block-semicolon-space-after: always-single-line
+  declaration-block-single-line-max-declarations: 1
+  declaration-colon-space-after: always
+  declaration-colon-space-before: never
+  function-url-quotes: never
+  indentation: 4
+  max-nesting-depth: 4
+  number-leading-zero: always
+  order/properties-alphabetical-order: null
+  property-no-unknown: [true, {checkPrefixed: [true]}]
+  rule-empty-line-before: [always-multi-line, {ignore: [inside-block]}]
+  scss/selector-no-redundant-nesting-selector: true
+  selector-class-pattern: '^(?:(?:l|c|u|is|has|pph|_|js|qa|ab)-)?[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*(?:__[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:--[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:\\[.+\\])?$'
+  selector-list-comma-newline-after: always
+  selector-max-id: 0
+  selector-no-qualifying-type: [true, {ignore: ['attribute']}]
+  selector-pseudo-element-colon-notation: single
+
+ignoreFiles:
+  - 'source/assets/css/03_generic/_reset.scss'

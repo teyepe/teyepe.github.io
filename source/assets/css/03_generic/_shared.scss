@@ -1,0 +1,38 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+a {
+    color: $orange;
+    text-decoration: none;
+    transition: all 0.15s ease-out 0s;
+    &:hover {
+        color: $orange;
+        transition: all 0.15s ease-in 0s;
+    } 
+    &:active {
+        color: $orange;
+    } 
+}
+
+p span {
+    @include word-wrap();
+    font-size: percentage(539 / 489);
+    font-family: 'Eurostile', $font-stack;
+    font-weight: bold;
+}
+
+svg {
+    .svg-color--orange {
+        fill: $orange;
+    }
+    .svg-color--deepblue {
+        fill: $deepblue;
+    }
+}

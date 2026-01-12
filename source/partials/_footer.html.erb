@@ -1,0 +1,22 @@
+<footer class="footer">
+    <div class="grid grid--b">
+		<%= partial "partials/aside" %>
+        <%= partial "partials/grid-lines/footer" %>
+        <div class="grid__item--illustration">
+            <%= partial "partials/svg/illustration" %>
+        </div>
+        <div class="grid__item--c">
+        	<h2 class="c-title--h2">contact</h2>
+            <p>If you’re interested in discussing a project, making something great together, or simply chatting about vintage USSR animations and his <a href="https://www.discogs.com/user/teyepe/collection" target="_blank" title="discogs">record collection</a>, please write to <span><a href="mailto:hello@teyepe.com">hello@teyepe.com</a></span></p>
+			<p>Keep on rocking!&emsp;🤘</p>
+		</div>
+        <div class="footer__colophon grid__item--f">
+            <h3 class="c-title--h5">colophon</h3>
+
+            <p>Designed and developed with <span>👁</span>, <span>🤛</span> and <span>🧠</span>. Typeset in Forma DJR and Eurostile. </br>Last updated<time><%= " on the #{Time.now.day.ordinalize} of #{Time.now.strftime("%B, %Y, at %I:%M%P")}" %></time></p>
+        </div>
+        <div class="footer__copyright grid__item--g">
+            <small>Copyright&ensp;©&puncsp;<%= "#{Date.today.year}" %>&emsp13;Tasos&emsp13;Dervenagas</small>
+        </div>
+	</div>
+</footer>

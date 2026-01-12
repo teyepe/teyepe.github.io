@@ -1,0 +1,198 @@
+@mixin font-face($woff2, $font-family, $font-filename, $font-weight: normal, $font-style: normal, $font-path: '../../../assets/type/') {
+    @font-face {
+        src: url('#{unquote($font_path)}#{$font_filename}.eot');
+        @if $woff2 == null {
+            src: local('\2660'),
+                url('#{unquote($font_path)}#{$font_filename}.eot?#') format('embedded-opentype'),
+                url('#{unquote($font_path)}#{$font_filename}.woff') format('woff');
+        } @else {
+            src: local('\2660'),
+                url('#{unquote($font_path)}#{$font_filename}.eot?#') format('embedded-opentype'),
+                url('#{unquote($font_path)}#{$font_filename}.woff') format('woff'),
+                url('#{unquote($font_path)}#{$font_filename}.woff2') format('woff2');
+        }
+        font: {
+            family: '#{$font-family}';
+            weight: $font-weight;
+            style: $font_style;
+        }
+    }
+}
+
+@mixin css-lock (
+    $min-size,
+    $max-size,
+    $property,
+    $min-width: $bp--sm,
+    $max-width: $bp--lg
+) {
+    #{$property}: lock-calc($min-size, $max-size, $min-width, $max-width);
+    @include to(1) {
+        #{$property}: #{$min-size};
+    }
+    @include from(4) {
+        #{$property}: #{$max-size};
+    }
+}
+
+@mixin font (
+    $font-family,
+    $font-weight,
+    $min-scale,
+    $max-scale,
+    $baseline-divisions: 4,
+    $value1: null,
+    $value2: null,
+    $font-style: normal
+) {
+    $cap-height: glyph-x-height($font-family);
+    $line-height-fraction: $baseline-divisions;
+    $line-rhythm: $line-height / $line-height-fraction;
+    $lines: parse-int(ceil(($font-size + 0.01) / $line-rhythm));
+    $unit-line-height: $lines * $line-rhythm;
+    $baseline-distance: ($unit-line-height - $cap-height) / 2;
+    @include css-lock(ms($min-scale), ms($max-scale), font-size);
+    font-family: $font-family, $font-stack;
+    font-weight: $font-weight;
+    line-height: $unit-line-height;
+    @if $value1 == null {
+        #{$value2}: ($baseline-distance + rem);
+    } @else if $value2 == null {
+        #{$value1}: ($unit-line-height - $baseline-distance + rem);
+    } @else {
+        #{$value1}: ($unit-line-height - $baseline-distance + rem);
+        #{$value2}: ($baseline-distance + rem);
+    }
+}
+
+@mixin font-smoothing($value: on) {
+    @if $value == on {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    @else {
+        -webkit-font-smoothing: subpixel-antialiased;
+        -moz-osx-font-smoothing: auto;
+    }
+}
+
+/* stylelint-disable */
+@mixin word-wrap() {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+/* stylelint-enable */
+
+@mixin silent-class($class-name) {
+    .#{$class-name},
+    %#{$class-name} {
+        @content;
+    }
+}
+
+@mixin selection {
+    ::selection {
+        @content;
+    }
+}
+
+@mixin units($property, $values) {
+    $px: ();
+    $rem: ();
+
+    @each $value in $values {
+
+        @if $value == 0 or type-of($value) != 'number' or unit($value) != 'rem' or unit($value) != 'px' {
+            $px: append($px, $value);
+            $rem: append($rem, $value);
+        }
+
+        @else { 
+            $unit: unit($value);
+            $val: parseInt($value);
+
+            @if $unit == 'px' {
+                $px: append($px, $value);
+                $rem: append($rem, ($val / 16 + rem));
+            }
+
+            @if $unit == 'rem' {
+                $px: append($px, ($val * 16 + px));
+                $rem: append($rem, $value);
+            }
+        }
+    }
+
+    @if $px == $rem {
+        #{$property}: $rem;
+    } @else {
+        #{$property}: $rem;
+        .no-cssremunit & {
+            #{$property}: $px;
+        }
+    }
+}
+
+// Clearfix
+
+@mixin cf() {
+    &:before,
+    &:after {
+        content: '';
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+// Generate color ranges for a list of classes
+
+@mixin color-range($color, $color-val, $degrees: 360, $classes: ()) {
+    $offset: $degrees / length($classes);
+    $color-range: ();
+    @for $i from 1 through length($classes) {
+        $color-range: (adjust-hue($color, $offset * $i));
+        .#{nth($classes, $i)} {
+            #{$color-val}: $color-range;
+        }
+    }
+}
+
+// Keyframe Mixin - adds vendor prefixes to keyframes
+
+@mixin keyframe($name) {
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+// Animation Mixin
+
+@mixin animation($name, $duration, $function, $delay, $count, $direction, $mode, $state) {
+    animation-name: $name;                  // animation name
+    animation-duration: $duration;          // .5s
+    animation-timing-function: $function;   // ease-in-out
+    animation-delay: $delay;                // 0s
+    animation-iteration-count: $count;      // infinite | <number>
+    animation-direction: $direction;        // normal | reverse | alternate | alternate-reverse
+    animation-fill-mode: $mode;             // none | forwards | backwards | both
+    animation-play-state: $state;           // running | paused
+}
+
+// Background Gradients
+
+@mixin linear-gradient($colors-stops: (), $deg: 180) {
+    background: linear-gradient(unquote('#{$deg}deg'), $colors-stops);
+}
+
+@mixin gradient($color1, $color2, $stop1: 0, $stop2: 100%, $deg: 180deg) {
+    background: linear-gradient($deg, $color1, $color1 $stop1, $color2 $stop1, $color2 $stop2);
+}

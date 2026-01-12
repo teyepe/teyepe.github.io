@@ -1,0 +1,38 @@
+.button {
+    @include font('Forma-Micro', normal, 0.5, 0.75, 4);
+    background: url(../../../assets/img/bg--offwhite.png) 0 0 repeat fixed $orange;
+    border-radius: $sp*0.5;
+    border: 0;
+    color: $offwhite;
+    display: inline-block;
+    padding: $sp--y $sp*4;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.15s ease-out 0s;
+    white-space: nowrap;
+    vertical-align: middle;
+    margin-top: $sp*3;
+    &:hover,
+    &:focus {
+        @if (yiq-is-light($orange, 128)) {
+            box-shadow: 0 ($sp*1.25) ($sp*2) (-$sp) transparentize(shade($orange, 65), 0.4);
+        } @else {
+            box-shadow: 0 ($sp*1.25) ($sp*2) (-$sp) transparentize(shade($orange, 55), 0.4);
+        }
+        background-color: tint-chroma($orange, 10);
+        color: $offwhite;
+        cursor: pointer;
+        transition: all 0.095s ease-in 0s;
+        &:after {
+            transform: translateX($sp);
+        }
+    }
+    &:active {
+        background-color: shade-chroma($orange, 10);
+        box-shadow: none;
+        cursor: pointer;
+    }
+    &:focus {
+        outline: 0;
+    }
+}
