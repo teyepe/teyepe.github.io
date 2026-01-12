@@ -97,12 +97,12 @@ const siteConfig = {
                     },
                     {
                         loader: 'sass-loader',
-                        query: {
+                        options: {
                             sourceMap: true,
-                            sourceMapContents: true,
+                            sassOptions: {
                             includePaths: [path.resolve(__dirname, './node_modules')],
-                            precision: 8,
-                            data: '$ENV: ' + 'DEVELOP' + ';'
+                            },
+                            additionalData: '$ENV: ' + 'DEVELOP' + ';'
                         }
                     }
                 ],
